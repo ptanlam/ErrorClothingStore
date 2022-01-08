@@ -28,7 +28,7 @@ namespace ErrorClothingStore.API
             {
                 opt.AddDefaultPolicy(cfg =>
                 {
-                    cfg.WithOrigins(Configuration["AllowedOrigins"]);
+                    cfg.WithOrigins(Configuration["AllowedOrigins"].Split(','));
                     cfg.AllowCredentials();
                     cfg.AllowAnyHeader();
                     cfg.AllowAnyMethod();
