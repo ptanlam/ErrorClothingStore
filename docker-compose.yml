@@ -6,8 +6,6 @@ services:
     environment:
       - ConnectionStrings__DefaultConnection=Server=mssql,1433;Database=ErrorClothingStoreDb;User=SA;Password=Admin@123
       - AllowedOrigins=http://localhost:3000,http://host.docker.internal:3000
-    volumes:
-      - mssql-data:/var/opt/mssql/data
     mem_limit: 64m
     cpus: 0.1
     ports:
@@ -20,6 +18,8 @@ services:
     environment:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=Admin@123
+    volumes:
+      - mssql-data:/var/opt/mssql/data
     mem_limit: 2.2Gb
     cpus: 0.2
     networks:
