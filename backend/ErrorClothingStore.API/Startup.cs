@@ -28,10 +28,10 @@ namespace ErrorClothingStore.API
             {
                 opt.AddDefaultPolicy(cfg =>
                 {
-                    cfg.WithOrigins(Configuration["AllowedOrigins"].Split(','));
-                    cfg.AllowCredentials();
-                    cfg.AllowAnyHeader();
-                    cfg.AllowAnyMethod();
+                    cfg.WithOrigins(Configuration["AllowedOrigins"].Split(','))
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials();
                 });
             });
 
@@ -54,9 +54,9 @@ namespace ErrorClothingStore.API
 
             app.UseHttpsRedirection();
 
-            app.UseCors();
-
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 
